@@ -45,7 +45,7 @@ go get github.com/testcontainers/testcontainers-go
 func NewTestDatabase(t *testing.T) testcontainers.Container {
     req := testcontainers.ContainerRequest{
 		Hostname:     "postgres-server",
-		Image:        "postgres:14",
+		Image:        "postgres:15.4",
 		ExposedPorts: []string{"5432/tcp"},
 		HostConfigModifier: func(hostConfig *container.HostConfig) {
 			hostConfig.AutoRemove = true
@@ -54,6 +54,9 @@ func NewTestDatabase(t *testing.T) testcontainers.Container {
 			"POSTGRES_USER":     "user",
 			"POSTGRES_PASSWORD": "password",
 			"POSTGRES_DB":       "testdb",
+		},
+		HostConfigModifier: func(hostConfig *container.HostConfig) {
+			hostConfig.AutoRemove = true
 		},
 		Mounts: testcontainers.ContainerMounts{
 			testcontainers.BindMount(testDataPath, "/docker-entrypoint-initdb.d"),
