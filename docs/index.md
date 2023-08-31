@@ -2,4 +2,4 @@
 
 ## Presentation
 
-- [How to use testcontainers-go](./testcontainers)
+- [How to use testcontainers-go](./testcontainers.html)
