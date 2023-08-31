@@ -2,4 +2,4 @@
 
 ## Presentation
 
-- [How to use testcontainers-go](./testcontainers.md)
+- [How to use testcontainers-go](./testcontainers)
